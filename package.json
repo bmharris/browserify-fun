@@ -1,0 +1,23 @@
+{
+  "name": "browserify",
+  "version": "0.0.0",
+  "description": "fun with browserify",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~3.2.1",
+    "browserify": "~2.13.2",
+    "through": "~2.3.4",
+    "jade": "~0.30.0",
+    "supervisor": "~0.5.2",
+    "moment": "~2.0.0",
+    "bean": "~1.0.3",
+    "qwery": "~3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "./node_modules/.bin/supervisor -q -w . -n error app.js"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
