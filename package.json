@@ -11,7 +11,11 @@
     "supervisor": "~0.5.2",
     "moment": "~2.0.0",
     "bean": "~1.0.3",
-    "qwery": "~3.4.1"
+    "qwery": "~3.4.1",
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.7",
+    "mkdirp": "~0.3.5",
+    "async": "~0.2.8"
   },
   "devDependencies": {},
   "scripts": {
