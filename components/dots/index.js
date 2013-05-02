@@ -1,28 +1,25 @@
-var bean = require('bean'),
+var emojis = require('./emojis'),
 	dotTpl = require('./dot.jade'),
 	mainTpl = require('./index.jade'),
-	bean = require('bean'),
-	qwery = require('qwery');
+	$ = require('../ender');
 
 module.exports = function(container) {
 	var timer,
-		$container = qwery(container)[0];
+		$container = $(container);
 
-	$container.innerHTML = mainTpl();
+	$container.html(mainTpl());
 
-	var $go = qwery('button.go', $container)[0],
-		$stop = qwery('button.stop', $container)[0],
-		$output = qwery('.output', $container)[0];
+	var $output = $container.find('.output');
 
 	function markit() {
-		$output.innerHTML += dotTpl();
+		$output.append(dotTpl({ emoji: emojis[Math.floor(Math.random()*emojis.length)] }));
 	}
 
-	bean.on($go, 'click', function go() {
+	$container.find('button.go').on('click', function go() {
 		if(!timer) timer = setInterval(markit, 1000);
 	});
 
-	bean.on($stop, 'click', function stop() {
+	$container.find('button.stop').on('click', function stop() {
 		clearInterval(timer);
 		timer = null;
 	});

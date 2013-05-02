@@ -1,21 +1,19 @@
 var tpl = require('./index.jade'),
 	qs = require('querystring'),
 	url = require('url'),
-	bean = require('bean'),
-	qwery = require('qwery');
+	$ = require('../ender');
 
 module.exports = function(container) {
 
-	qwery(container)[0].innerHTML = tpl();
+	var $container = $(container).html(tpl());
 
-	var $input = qwery('input', container)[0],
-		$output = qwery('.output', container)[0],
-		$button = qwery('button', container)[0];
+	var $input = $container.find('input'),
+		$output = $container.find('.output');
 
-	bean.on($button, 'click', function() {
-		var parsed = url.parse($input.value);
+	$container.find('button').on('click', function() {
+		var parsed = url.parse($input.val());
 
-		$output.innerHTML = JSON.stringify(parsed, null, '\t');
-		$output.innerHTML += '\n'+JSON.stringify(qs.parse(parsed.query));
+		$output.html(JSON.stringify(parsed, null, '\t'));
+		$output.append('\n'+JSON.stringify(qs.parse(parsed.query)));
 	});
 };

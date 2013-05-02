@@ -1,4 +1,5 @@
-var jade = require('jade'),
+var format = require('util').format,
+	jade = require('jade'),
 	express = require('express'),
 	bundler = require('./lib/bundler'),
 	app = express();
@@ -6,6 +7,10 @@ var jade = require('jade'),
 app.set('view engine', 'jade');
 app.set('views', __dirname+'/components');
 
+app.use(function(req, res, next) {
+	console.log(format('%s: %s', req.method, req.url));
+	next();
+});
 app.use(express.static(__dirname+'/public'));
 
 // dynamic bundler for development

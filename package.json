@@ -15,11 +15,13 @@
     "grunt": "~0.4.1",
     "grunt-cli": "~0.1.7",
     "mkdirp": "~0.3.5",
-    "async": "~0.2.8"
+    "async": "~0.2.8",
+    "bonzo": "~1.3.5"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "./node_modules/.bin/supervisor -q -w . -n error app.js"
+    "start": "./node_modules/.bin/supervisor -q -w . -n error app.js",
+    "bundle": "./node_modules/.bin/grunt bundle"
   },
   "repository": "",
   "author": "",

@@ -1,3 +1,7 @@
 html { font-family: Tahoma; }
 
 input { font-size: 1.0em; width: 400px;}
+
+.dots-please { overflow: auto; padding: 5px; }
+.dots-please img { width: 25px; margin: 3px; }
+.dots-please button { font-size: 1.0em; }
